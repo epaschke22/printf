@@ -17,7 +17,7 @@ char *op_manage(char c, va_list arg)
 	switch (c)
 	{
 	case '%':
-		return (op_percent(c));
+		return (op_percent());
 	case 'c':
 		return (op_char(va_arg(arg, int)));
 	case 's':
@@ -36,8 +36,6 @@ char *op_manage(char c, va_list arg)
 		return (op_hex_lower(va_arg(arg, unsigned int)));
 	case 'X':
 		return (op_hex_upper(va_arg(arg, unsigned int)));
-	case 'p':
-		return (op_pointer(va_arg(arg, char *)));
 	case 'r':
 		return (op_reverse(va_arg(arg, char *)));
 	case 'R':
