@@ -1,4 +1,17 @@
+#include "holberton.h"
+
+/**
+ * op_percent - returns string with a %
+ * @c: char
+ *
+ * Return: string
+ */
+
 char *op_percent(char c)
+{
+	char str[2] = "%/0";
+	return (str);
+}
 
 /**
  * op_char - inputs a char to return a string
@@ -6,14 +19,47 @@ char *op_percent(char c)
  *
  * Return: new string.
  */
+
 char *op_char(char c)
 {
-        char charstr[2] = " /0";
+        char str[2] = " /0";
 
-        charstr[0] = input;
-        return (charstr);
+        str[0] = c;
+        return (str);
 }
 
+/**
+ * op_string - returns string
+ * @s: a string
+ *
+ * Return: string
+ */
+
 char *op_string(char *s)
+{
+	return(s);
+}
+
+/**
+ * op_reverse - returns reversed string
+ * @s: a string
+ *
+ * Return: string
+ */
+
 char *op_reverse(char *s)
+{
+	return (s);
+}
+
+/**
+ * op_rot - returns rot13'd string
+ * @s: a string
+ *
+ * Return: string
+ */
+
 char *op_rot(char *s)
+{
+	return (s);
+}
