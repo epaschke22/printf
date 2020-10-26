@@ -18,4 +18,5 @@ char *rev_string(char *s);
 char *rot13(char *s);
 char *_memset(char *s, char b, unsigned int n);
 char *_memcpy(char *dest, char *src, unsigned int n);
+unsigned int _printf(const char * const format, ...);
 #endif
