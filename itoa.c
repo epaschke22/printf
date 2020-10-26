@@ -11,12 +11,15 @@
  */
 char* _itoa(int value, int base)
 {
-	char *string, charstr[2] = " \0", *numberbet;
-	int tmp_value, charvalue;
+	char *string = "", charstr[2] = " \0", nchar[2] = "-\0";
+	char numberbet[16] = "0123456789abcdef";
+	int tmp_value, charvalue, negativeflag = 0;
 
-	string = "";
-	numberbet = "0123456789abcdef";
-
+	if (value < 0)
+	{
+		value = _abs(value);
+		negativeflag = 1;
+	}
 	while (value)
 	{
 		tmp_value = value;
@@ -26,7 +29,8 @@ char* _itoa(int value, int base)
 		string = str_concat(string, charstr);
 	}
 	rev_string(string);
-
+	if (negativeflag == 1)
+		string = str_concat(nchar, string);
 	return (string);
 }
 
@@ -38,11 +42,11 @@ int main(void)
 	printf("%s\n", s);
 	s = _itoa(451460, 16);
 	printf("%s\n", s);
-	s = _itoa(INT_MAX, 10);
+	s = _itoa(-3465, 10);
 	printf("%s\n", s);
 	s = _itoa(INT_MAX, 16);
 	printf("%s\n", s);
-	s = _itoa(10000000, 8);
+	s = _itoa(-7239, 8);
 	printf("%s\n", s);
 	s = _itoa(INT_MAX, 2);
 	printf("%s\n", s);
