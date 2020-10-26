@@ -60,7 +60,7 @@ char *_strcat(char *dest, char *src)
 
 	len = _strlen(dest);
 	for (i = 0; src[i]; i++)
-	       	dest[len + i] = src[i];
+		dest[len + i] = src[i];
 	return (dest);
 }
 
