@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "holberton.h"
 
 /**
@@ -9,7 +10,9 @@
 
 char *op_percent(char c)
 {
-	char str[2] = "%/0";
+	char *str = malloc(sizeof(char) * 2);
+	str = "%\0";
+
 	return (str);
 }
 
@@ -22,10 +25,11 @@ char *op_percent(char c)
 
 char *op_char(char c)
 {
-        char str[2] = " /0";
+	char *str = malloc(sizeof(char) * 2);
 
-        str[0] = c;
-        return (str);
+	str = " \0";
+	str[0] = c;
+	return (str);
 }
 
 /**
@@ -37,7 +41,7 @@ char *op_char(char c)
 
 char *op_string(char *s)
 {
-	return(s);
+	return (s);
 }
 
 /**
