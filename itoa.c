@@ -60,18 +60,3 @@ char *_uitoa(unsigned int value, int base)
 	string[i] = '\0';
 	return (string);
 }
-
-int main(void)
-{
-	char *s;
-
-	s = _uitoa(451460, 2);
-	printf("%s\n", s);
-	s = _uitoa(451460, 16);
-	printf("%s\n", s);
-	s = _itoa(9786);
-	printf("%s\n", s);
-	s = _itoa(32567);
-	printf("%s\n", s);
-	return (0);
-}
