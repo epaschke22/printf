@@ -11,8 +11,8 @@
 char *op_percent(void)
 {
 	char *str = malloc(sizeof(char) * 2);
-	str = "%\0";
 
+	str = "%\0";
 	return (str);
 }
 

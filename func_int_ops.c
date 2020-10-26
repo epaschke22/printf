@@ -10,13 +10,8 @@
 char *op_int(int n)
 {
 	char *str;
-/*	int len;*/
 
 	str = _itoa(n);
-/*	ptr = malloc(_strlen(str) * sizeof(char));
-
-	_strcpy(str, ptr);
-	free(str);*/
 	return (str);
 }
 
