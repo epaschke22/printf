@@ -1,0 +1,5 @@
+char *op_percent(char c)
+char *op_char(char c)
+char *op_string(char *s)
+char *op_reverse(char *s)
+char *op_rot(char *s)
