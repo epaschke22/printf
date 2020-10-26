@@ -31,8 +31,8 @@ char *_itoa(int value)
 	}
 	if (negativeflag == 1)
 		string[i] = '-';
-	string[i + 1] = '\0';
 	rev_string(string);
+	string[i + 1] = '\0';
 	return (string);
 }
 
@@ -56,8 +56,8 @@ char *_uitoa(unsigned int value, int base)
 		string[i] = numberbet[charvalue];
 		i++;
 	}
-	string[i] = '\0';
 	rev_string(string);
+	string[i] = '\0';
 	return (string);
 }
 
