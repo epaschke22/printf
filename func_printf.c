@@ -17,7 +17,7 @@ char *op_manage(char c, va_list arg)
 	switch (c)
 	{
 	case '%':
-		return (op_percent(c));
+		return (op_percent());
 	case 'c':
 		return (op_char(va_arg(arg, int)));
 	case 's':

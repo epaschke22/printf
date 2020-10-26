@@ -8,7 +8,7 @@
  * Return: string
  */
 
-char *op_percent(char c)
+char *op_percent(void)
 {
 	char *str = malloc(sizeof(char) * 2);
 	str = "%\0";

@@ -34,7 +34,10 @@ char *rot13(char *s);
 char *_memset(char *s, char b, unsigned int n);
 char *_memcpy(char *dest, char *src, unsigned int n);
 
-char *op_percent(char c);
+char *_itoa(int value);
+char *_uitoa(unsigned int value, int base);
+
+char *op_percent(void);
 char *op_char(char c);
 char *op_string(char *s);
 char *op_int(int n);
