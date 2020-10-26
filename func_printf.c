@@ -11,6 +11,7 @@
  *
  * Return: string
  */
+
 char *op_manage(char c, va_list arg)
 {
 	switch (c)
@@ -18,7 +19,7 @@ char *op_manage(char c, va_list arg)
 	case '%':
 		return (op_percent(c));
 	case 'c':
-		return (op_char(va_arg(arg, char)));
+		return (op_char(va_arg(arg, int)));
 	case 's':
 		return (op_string(va_arg(arg, char *)));
 	case 'd':
@@ -81,7 +82,7 @@ unsigned int _printf(const char * const format, ...)
 				j++;
 			}
 			i += 2;
-		}
+			}
 		buffer[byte_n % kilochar] = format[i];
 		byte_n++;
 		if (byte_n % kilochar == 0 && byte_n != 0)
