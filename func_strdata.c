@@ -41,7 +41,7 @@ char *_strncpy(char *dest, char *src, int n)
 {
 	int arrpos;
 
-	for (arrpos = 0; arrpos < n && src[arrpos]; i++)
+	for (arrpos = 0; arrpos < n && src[arrpos]; arrpos++)
 		dest[arrpos] = src[arrpos];
 	for (; arrpos < n; arrpos++)
 		dest[arrpos] = '\0';
@@ -58,24 +58,26 @@ char *_strcat(char *dest, char *src)
 {
 	int len, i;
 
-	len = _strlen(dest)
-		for (i = 0; src[i]; i++)
-			dest[len + i] = src[i];
+	len = _strlen(dest);
+	for (i = 0; src[i]; i++)
+	       	dest[len + i] = src[i];
 	return (dest);
 }
 
 /**
- * _strcmp - compares 2 strings.
- * @s1: first string to be compared.
- * @s2: second string to be compared.
- * Return: difference in ascii value of first non matching pair
+ * _strncat - concatenates 2 strings
+ * @dest: the combined output of both strings.
+ * @src: the string to be combined.
+ * @n: the amoutn of total bytes to combine.
+ * Return: always 0
  */
-int _strcmp(char *s1, char *s2)
+char *_strncat(char *dest, char *src, int n)
 {
-	int i;
+	int len = 0, i;
 
-	for (i = 0; s1[i]; i++)
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-	return (0);
+	len = _strlen(dest);
+	for (i = 0; i < n && src[i]; i++)
+		dest[len + i] = src[i];
+	dest[len + i] = 0;
+	return (dest);
 }

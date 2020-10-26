@@ -9,7 +9,6 @@ char *rev_string(char *s)
 {
 	int len, i = 0;
 	char temp;
-	char *rev;
 
 	len = _strlen(s) - 1;
 	while (i <= len)
