@@ -91,9 +91,7 @@ unsigned int _printf(const char * const format, ...)
 		buffer[byte_n % kilochar] = format[i];
 		byte_n++;
 		if (byte_n % kilochar == 0 && byte_n != 0)
-		{
 			write(1, buffer, kilochar);
-		}
 	}
 	va_end(arg);
 	if (byte_n % kilochar != 0)
