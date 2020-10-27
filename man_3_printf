@@ -1,0 +1,115 @@
+.Dd 10/27/2020               \" DATE
+.Dt _printf 3      \" Program name and manual section number
+.Sh NAME                 \" Section Header - required - don't modify
+.Nm _printf
+.Nd format and print data
+.Sh SYNOPSIS             \" Section Header - required - don't modify
+#include "holberton.h"
+
+int _printf(const char *format, ...);
+.Sh DESCRIPTION          \" Section Header - required - don't modify
+.Nm
+produces output according to format as described below
+
+.Pp                      \" Inserts a space
+.Sh Return value
+On succesful return, _printf returns number of characters printed.
+
+
+If an output error is encountered a negative value is returned.
+
+.Sh Format of the format string
+The format string is a character string composed of ordinary characters (not %), which are unchanged, and conversion specifiers that start with the character "%" which indicates the next character is a flag. Then a function is called that corresponds to the flag to take an argument (in order given) which outputs a string that gets written.
+
+.Sh Conversion specifiers
+The character % is followed by one of the following flags:
+.Pp
+.Bl -tag  \" Differs from above in tag removed
+.It Fl %                 \"-a flag as a list item
+is converted to %
+.It Fl c
+Converts int argument to unsigned char
+.It Fl s
+Expects char * argument
+.It Fl d, i
+Converts int argument to signed decimal notation.
+.It Fl u, b, o, x, X
+Converts int argument to unsigned decimal, binary, octal, or hexadecimal (lower and upper) notation respectively
+.It Fl p
+Prints void * pointer argument in hexadecimal
+.It Fl r
+Expects char * argument and reverses the order
+.It Fl R
+Expects char * argument and encodes it in ROT13
+.El                      \" Ends the list
+.Pp
+.Sh EXAMPLES
+char *str = "hello";
+
+char c = 'I';
+
+int i = 35, j = 8, k = -12;
+
+unsigned int num1 = 4567, num2 = 1000, num3 = 1023;
+
+
+_printf("This is a string [%s]\n", str);
+
+This is a string [hello]
+
+
+_printf("Two strings, %s %s\n", str, "goodbye");
+
+Two strings, hello goodbye
+
+
+_printf("%s\n", "goodbye");
+
+Two functions, hello goodbye
+
+
+_printf("%s! %c love coding!", str, c);
+
+hello! I love coding!
+
+
+_printf("%d + %i = %d", i, j, (i + j));
+
+35 + 8 = 43
+
+
+_printf("%d + %i = %d", i, k, (i + k));
+
+35 + -12 = 23
+
+
+_printf("%u\n%o\n%x\n%X\n%b\n", num1, num2, num3, num3, num2);
+
+4567
+
+1750
+
+3ff
+
+3FF
+
+1111101000
+
+
+_printf("%p\n", str);
+
+0x45e8b0
+
+
+_printf("%r %R\n", str, str);
+
+olleh uryyb
+
+
+.Sh FILES                \" File used or created by the topic of the man page
+.Bl -tag -width "/Users/joeuser/Library/really_long_file_name" -compact
+.It Pa filename
+FILL IN LATER
+.El
+.Sh SEE ALSO
+printf <-- use this it is better
