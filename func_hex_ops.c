@@ -41,6 +41,8 @@ char *op_pointer(unsigned long int n)
 {
 	char *str, front[3] = "0x\0";
 
+	if (n == NULL)
+		return ("(nil)");
 	str = malloc((_strlen(_uitoa(n, 16)) + 2) * sizeof(char));
 	_strcpy(str, front);
 	_strcat(str, _uitoa(n, 16));
