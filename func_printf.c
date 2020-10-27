@@ -54,7 +54,7 @@ char *op_manage(char c, va_list arg)
  * Return: Number of bytes
  */
 
-unsigned int _printf(const char * const format, ...)
+int _printf(const char * const format, ...)
 {
 	va_list arg;
 	int i, j, byte_n = 0, kilochar = (1024 * sizeof(char));
