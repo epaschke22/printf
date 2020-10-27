@@ -11,7 +11,7 @@ char *op_int(int n)
 	char *str;
 
 
-	str = malloc(_strlen(itoa(n)) * sizeof(char));
+	str = malloc(_strlen(_itoa(n)) * sizeof(char));
 	_strcpy(str, _itoa(n));
 	return (str);
 }
