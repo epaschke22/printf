@@ -49,5 +49,5 @@ char *op_pointer(unsigned long int n);
 char *op_reverse(char *s);
 char *op_rot(char *s);
 
-unsigned int _printf(const char * const format, ...);
+int _printf(const char * const format, ...);
 #endif
