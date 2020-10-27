@@ -6,47 +6,43 @@
  *
  * Return: new string
  */
-
 char *op_int(int n)
 {
 	char *str;
-/*	int len;*/
 
-	str = _itoa(n);
-/*	ptr = malloc(_strlen(str) * sizeof(char));
 
-	_strcpy(str, ptr);
-	free(str);*/
+	str = malloc(_strlen(_itoa(n)) * sizeof(char));
+	_strcpy(str, _itoa(n));
 	return (str);
 }
 
 /**
- * op_uint - converts uint to string
+ * op_uint - converts uunsigned int to string
  * @n: int
  *
  * Return: new string
  */
-
 char *op_uint(unsigned int n)
 {
 	char *str;
 
-	str = _uitoa(n, 10);
+	str = malloc(_strlen(_uitoa(n, 10)) * sizeof(char));
+	_strcpy(str, _uitoa(n, 10));
 	return (str);
 }
 
 /**
- * op_binary - converts uint to binary string
+ * op_binary - converts uunsigned int to binary string
  * @n: int
  *
  * Return: new string
  */
-
 char *op_binary(unsigned int n)
 {
 	char *str;
 
-	str = _uitoa(n, 2);
+	str = malloc(_strlen(_uitoa(n, 2)) * sizeof(char));
+	_strcpy(str, _uitoa(n, 2));
 	return (str);
 }
 
@@ -56,11 +52,11 @@ char *op_binary(unsigned int n)
  *
  * Return: new string
  */
-
 char *op_octal(unsigned int n)
 {
 	char *str;
 
-	str = _uitoa(n, 8);
+	str = malloc(_strlen(_uitoa(n, 8)) * sizeof(char));
+	_strcpy(str, _uitoa(n, 8));
 	return (str);
 }

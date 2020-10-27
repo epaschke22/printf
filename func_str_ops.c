@@ -11,8 +11,9 @@
 char *op_percent(void)
 {
 	char *str = malloc(sizeof(char) * 2);
-	str = "%\0";
 
+
+	_strcpy(str, "%\0");
 	return (str);
 }
 
@@ -27,7 +28,7 @@ char *op_char(char c)
 {
 	char *str = malloc(sizeof(char) * 2);
 
-	str = " \0";
+	_strcpy(str, " \0");
 	str[0] = c;
 	return (str);
 }
@@ -53,6 +54,7 @@ char *op_string(char *s)
 
 char *op_reverse(char *s)
 {
+	s = rev_string(s);
 	return (s);
 }
 
@@ -65,5 +67,6 @@ char *op_reverse(char *s)
 
 char *op_rot(char *s)
 {
+	s = rot13(s);
 	return (s);
 }
