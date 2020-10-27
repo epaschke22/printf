@@ -57,14 +57,14 @@ char *op_manage(char c, va_list arg)
 unsigned int _printf(const char * const format, ...)
 {
 	va_list arg;
-	int i = 0, j = 0, byte_n = 0, kilochar = (1024 * sizeof(char));
+	int i, j, byte_n = 0, kilochar = (1024 * sizeof(char));
 	char *buffer, *string;
 
-	if (format == NULL)
-		exit(1);
+	if (format == NULL || format[0] == '\0')
+		return (-1);
 	buffer = malloc(kilochar);
 	va_start(arg, format);
-	while (format[i] != '\0')
+	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
@@ -75,23 +75,22 @@ unsigned int _printf(const char * const format, ...)
 				free(buffer);
 				exit(1);
 			}
-			while (string[j] != '\0')
+			for (j = 0; string[j] != '\0'; j++)
 			{
 				buffer[byte_n % kilochar] = string[j];
 				byte_n++;
 				if (byte_n % kilochar == 0 && byte_n != 0)
-					write(1, buffer, (byte_n % kilochar));
-				j++;
+					write(1, buffer, kilochar);
 			}
-			j = 0;
-			i += 2;
+			i++;
 			continue;
 		}
 		buffer[byte_n % kilochar] = format[i];
 		byte_n++;
 		if (byte_n % kilochar == 0 && byte_n != 0)
-			write(1, buffer, (byte_n % kilochar));
-		i++;
+		{
+			write(1, buffer, kilochar);
+		}
 	}
 	va_end(arg);
 	if (byte_n % kilochar != 0)
