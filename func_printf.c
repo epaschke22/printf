@@ -36,6 +36,8 @@ char *op_manage(char c, va_list arg)
 		return (op_hex_lower(va_arg(arg, unsigned int)));
 	case 'X':
 		return (op_hex_upper(va_arg(arg, unsigned int)));
+	case 'p':
+		return (op_pointer(va_arg(arg, unsigned long int)));
 	case 'r':
 		return (op_reverse(va_arg(arg, char *)));
 	case 'R':
@@ -55,38 +57,43 @@ char *op_manage(char c, va_list arg)
 unsigned int _printf(const char * const format, ...)
 {
 	va_list arg;
-	int i = 0, j = 0, byte_n = 0, kilochar = (1024 * sizeof(char));
+	int i, j, byte_n = 0, kilochar = (1024 * sizeof(char));
 	char *buffer, *string;
 
+	if (format == NULL || format[0] == '\0' || !format)
+		return (-1);
 	buffer = malloc(kilochar);
 	va_start(arg, format);
-	while (format[i] != '\0')
+	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
-			string = op_manage(format[i + 1], arg);
-			if (string == NULL)
+			if (format[i + 1] == '\0')
 			{
 				free(string);
 				free(buffer);
-				exit(1);
+				return (-1);
 			}
-			while (string[j] != '\0')
+			string = op_manage(format[i + 1], arg);
+			if (string != NULL)
 			{
-				buffer[byte_n % kilochar] = string[j];
-				byte_n++;
-				if (byte_n % kilochar == 0 && byte_n != 0)
-					write(1, buffer, (byte_n % kilochar));
-				j++;
+				for (j = 0; string[j] != '\0'; j++)
+				{
+					buffer[byte_n % kilochar] = string[j];
+					byte_n++;
+					if (byte_n % kilochar == 0 && byte_n != 0)
+					write(1, buffer, kilochar);
+				}
+				i++;
+				continue;
 			}
-			j = 0;
-			i += 2;
-			}
+		}
 		buffer[byte_n % kilochar] = format[i];
 		byte_n++;
 		if (byte_n % kilochar == 0 && byte_n != 0)
-			write(1, buffer, (byte_n % kilochar));
-		i++;
+		{
+			write(1, buffer, kilochar);
+		}
 	}
 	va_end(arg);
 	if (byte_n % kilochar != 0)
