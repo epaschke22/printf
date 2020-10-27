@@ -12,6 +12,7 @@ char *op_percent(void)
 {
 	char *str = malloc(sizeof(char) * 2);
 
+
 	_strcpy(str, "%\0");
 	return (str);
 }
