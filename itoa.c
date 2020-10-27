@@ -18,7 +18,7 @@ char *_itoa(int value)
 	{
 		if (value == INT_MIN)
 		{
-			_str(string, intminstr);
+			_strcpy(string, intminstr);
 			return (string);
 		}
 		value = _abs(value);

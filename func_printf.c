@@ -76,9 +76,10 @@ unsigned int _printf(const char * const format, ...)
 				buffer[byte_n % kilochar] = string[j];
 				byte_n++;
 				if (byte_n % kilochar == 0 && byte_n != 0)
-				write(1, buffer, (byte_n % kilochar));
+					write(1, buffer, (byte_n % kilochar));
 				j++;
 			}
+			j = 0;
 			i += 2;
 			}
 		buffer[byte_n % kilochar] = format[i];
