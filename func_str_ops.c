@@ -55,6 +55,8 @@ char *op_string(char *s)
 
 char *op_reverse(char *s)
 {
+	if (s == NULL)
+		return ("(null)");
 	s = rev_string(s);
 	return (s);
 }
@@ -68,6 +70,8 @@ char *op_reverse(char *s)
 
 char *op_rot(char *s)
 {
+	if (s == NULL)
+		return ("(null)");
 	s = rot13(s);
 	return (s);
 }
