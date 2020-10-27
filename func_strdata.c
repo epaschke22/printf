@@ -1,6 +1,26 @@
 #include "holberton.h"
 
 /**
+ * _islower - checks if a char is lower
+ * @c: input char
+ * Return: 1 is true, else 0
+ */
+int _islower(int c)
+{
+	return (c >= 'a' && c <= 'z');
+}
+
+/**
+ * _abs - converts int into a positive number
+ * @n: input int
+ * Return: new value of n
+ */
+int _abs(int n)
+{
+	return (n < 0 ? -n : n);
+}
+
+/**
  * _strlen - returns string length
  * @s: input string pointer
  * Return: int of length
@@ -31,24 +51,6 @@ char *_strcpy(char *dest, char *src)
 }
 
 /**
- * _strncpy - copies a string with n bytes.
- * @dest: the output of the copied string.
- * @src: the string to be copied.
- * @n: the total bytes to be copied.
- * Return: destination string
- */
-char *_strncpy(char *dest, char *src, int n)
-{
-	int arrpos;
-
-	for (arrpos = 0; arrpos < n && src[arrpos]; arrpos++)
-		dest[arrpos] = src[arrpos];
-	for (; arrpos < n; arrpos++)
-		dest[arrpos] = '\0';
-	return (dest);
-}
-
-/**
  * _strcat - concatenates 2 strings
  * @dest: the combined output of both strings
  * @src: the string to be combined
@@ -61,23 +63,5 @@ char *_strcat(char *dest, char *src)
 	len = _strlen(dest);
 	for (i = 0; src[i]; i++)
 		dest[len + i] = src[i];
-	return (dest);
-}
-
-/**
- * _strncat - concatenates 2 strings
- * @dest: the combined output of both strings.
- * @src: the string to be combined.
- * @n: the amoutn of total bytes to combine.
- * Return: always 0
- */
-char *_strncat(char *dest, char *src, int n)
-{
-	int len = 0, i;
-
-	len = _strlen(dest);
-	for (i = 0; i < n && src[i]; i++)
-		dest[len + i] = src[i];
-	dest[len + i] = 0;
 	return (dest);
 }
