@@ -58,6 +58,8 @@ unsigned int _printf(const char * const format, ...)
 	int i = 0, j = 0, byte_n = 0, kilochar = (1024 * sizeof(char));
 	char *buffer, *string;
 
+	if (format == NULL)
+		exit(1);
 	buffer = malloc(kilochar);
 	va_start(arg, format);
 	while (format[i] != '\0')
@@ -81,7 +83,8 @@ unsigned int _printf(const char * const format, ...)
 			}
 			j = 0;
 			i += 2;
-			}
+			continue;
+		}
 		buffer[byte_n % kilochar] = format[i];
 		byte_n++;
 		if (byte_n % kilochar == 0 && byte_n != 0)
