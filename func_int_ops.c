@@ -2,8 +2,7 @@
 
 /**
  * op_int - converts int to string
- * @n: int
- *
+ * @n: input int
  * Return: new string
  */
 char *op_int(int n)
@@ -18,8 +17,7 @@ char *op_int(int n)
 
 /**
  * op_uint - converts uunsigned int to string
- * @n: int
- *
+ * @n: input unsigned int
  * Return: new string
  */
 char *op_uint(unsigned int n)
@@ -33,8 +31,7 @@ char *op_uint(unsigned int n)
 
 /**
  * op_binary - converts uunsigned int to binary string
- * @n: int
- *
+ * @n: input unsigned int
  * Return: new string
  */
 char *op_binary(unsigned int n)
@@ -48,8 +45,7 @@ char *op_binary(unsigned int n)
 
 /**
  * op_octal - converts uint to octal string
- * @n: int
- *
+ * @n: input unsigned int
  * Return: new string
  */
 char *op_octal(unsigned int n)
@@ -58,15 +54,5 @@ char *op_octal(unsigned int n)
 
 	str = malloc(_strlen(_uitoa(n, 8)) * sizeof(char));
 	_strcpy(str, _uitoa(n, 8));
-	return (str);
-}
-
-char *op_pointer(unsigned long int n)
-{
-	char *str, front[3] = "0x\0";
-
-	str = malloc((_strlen(_uitoa(n, 16)) + 2) * sizeof(char));
-	_strcpy(str, front);
-	_strcat(str, _uitoa(n, 16));
 	return (str);
 }
