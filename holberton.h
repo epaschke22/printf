@@ -35,8 +35,8 @@ char *_memset(char *s, char b, unsigned int n);
 char *_memcpy(char *dest, char *src, unsigned int n);
 
 char *_itoa(int value);
+char *op_percent(char c);
 char *_uitoa(unsigned int value, int base);
-
 char *op_percent(void);
 char *op_char(char c);
 char *op_string(char *s);
