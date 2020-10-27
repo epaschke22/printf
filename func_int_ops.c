@@ -60,3 +60,13 @@ char *op_octal(unsigned int n)
 	_strcpy(str, _uitoa(n, 8));
 	return (str);
 }
+
+char *op_pointer(unsigned long int n)
+{
+	char *str, front[3] = "0x\0";
+
+	str = malloc((_strlen(_uitoa(n, 16)) + 2) * sizeof(char));
+	_strcpy(str, front);
+	_strcat(str, _uitoa(n, 16));
+	return (str);
+}
