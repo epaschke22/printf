@@ -1,4 +1,20 @@
-char *op_percent(char c)
+#include <stdlib.h>
+#include "holberton.h"
+
+/**
+ * op_percent - returns string with a %
+ * @c: char
+ *
+ * Return: string
+ */
+
+char *op_percent(void)
+{
+	char *str = malloc(sizeof(char) * 2);
+
+	_strcpy(str, "%\0");
+	return (str);
+}
 
 /**
  * op_char - inputs a char to return a string
@@ -6,14 +22,50 @@ char *op_percent(char c)
  *
  * Return: new string.
  */
+
 char *op_char(char c)
 {
-        char charstr[2] = " /0";
+	char *str = malloc(sizeof(char) * 2);
 
-        charstr[0] = input;
-        return (charstr);
+	_strcpy(str, " \0");
+	str[0] = c;
+	return (str);
 }
 
+/**
+ * op_string - returns string
+ * @s: a string
+ *
+ * Return: string
+ */
+
 char *op_string(char *s)
+{
+	return (s);
+}
+
+/**
+ * op_reverse - returns reversed string
+ * @s: a string
+ *
+ * Return: string
+ */
+
 char *op_reverse(char *s)
+{
+	s = rev_string(s);
+	return (s);
+}
+
+/**
+ * op_rot - returns rot13'd string
+ * @s: a string
+ *
+ * Return: string
+ */
+
 char *op_rot(char *s)
+{
+	s = rot13(s);
+	return (s);
+}

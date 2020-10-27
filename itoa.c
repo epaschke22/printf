@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "holberton.h"
 
 /**
@@ -8,16 +9,18 @@
  */
 char *_itoa(int value)
 {
-	char *string, *intminp, numberbet[10] = "0123456789";
+	char *string, numberbet[10] = "0123456789";
 	char intminstr[12] = "-2147483648\0";
 	int i = 0, tmp_value, charvalue, negativeflag = 0;
 
-	intminp = intminstr;
-	string = malloc(32 * sizeof(char));
+	string = malloc(12 * sizeof(char));
 	if (value < 0)
 	{
 		if (value == INT_MIN)
-			return (intminp);
+		{
+			_str(string, intminstr);
+			return (string);
+		}
 		value = _abs(value);
 		negativeflag = 1;
 	}
@@ -47,7 +50,7 @@ char *_uitoa(unsigned int value, int base)
 	char *string, numberbet[16] = "0123456789abcdef";
 	int tmp_value, charvalue, i = 0;
 
-	string = malloc(12 * sizeof(char));
+	string = malloc(32 * sizeof(char));
 	while (value)
 	{
 		tmp_value = value;
