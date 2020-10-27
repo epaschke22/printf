@@ -1,10 +1,7 @@
-#include <stdlib.h>
 #include "holberton.h"
 
 /**
  * op_percent - returns string with a %
- * @c: char
- *
  * Return: string
  */
 
@@ -19,9 +16,8 @@ char *op_percent(void)
 
 /**
  * op_char - inputs a char to return a string
- * @c: char from va list
- *
- * Return: new string.
+ * @c: input char from valist
+ * Return: new string
  */
 
 char *op_char(char c)
@@ -35,8 +31,7 @@ char *op_char(char c)
 
 /**
  * op_string - returns string
- * @s: a string
- *
+ * @s: input string
  * Return: string
  */
 
@@ -47,8 +42,7 @@ char *op_string(char *s)
 
 /**
  * op_reverse - returns reversed string
- * @s: a string
- *
+ * @s: input string
  * Return: string
  */
 
@@ -60,8 +54,7 @@ char *op_reverse(char *s)
 
 /**
  * op_rot - returns rot13'd string
- * @s: a string
- *
+ * @s: input string
  * Return: string
  */
 
