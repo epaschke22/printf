@@ -70,7 +70,6 @@ int _printf(const char * const format, ...)
 		{
 			if (format[i + 1] == '\0')
 			{
-				free(string);
 				free(buffer);
 				return (-1);
 			}
