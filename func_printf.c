@@ -60,7 +60,7 @@ unsigned int _printf(const char * const format, ...)
 	int i, j, byte_n = 0, kilochar = (1024 * sizeof(char));
 	char *buffer, *string;
 
-	if (format == NULL || format[0] == '\0')
+	if (format == NULL || format[0] == '\0' || !format)
 		return (-1);
 	buffer = malloc(kilochar);
 	va_start(arg, format);
@@ -68,22 +68,25 @@ unsigned int _printf(const char * const format, ...)
 	{
 		if (format[i] == '%')
 		{
-			string = op_manage(format[i + 1], arg);
-			if (string == NULL)
+			if (format[i + 1] == '\0')
 			{
 				free(string);
 				free(buffer);
-				exit(1);
+				return (-1);
 			}
-			for (j = 0; string[j] != '\0'; j++)
+			string = op_manage(format[i + 1], arg);
+			if (string != NULL)
 			{
-				buffer[byte_n % kilochar] = string[j];
-				byte_n++;
-				if (byte_n % kilochar == 0 && byte_n != 0)
+				for (j = 0; string[j] != '\0'; j++)
+				{
+					buffer[byte_n % kilochar] = string[j];
+					byte_n++;
+					if (byte_n % kilochar == 0 && byte_n != 0)
 					write(1, buffer, kilochar);
+				}
+				i++;
+				continue;
 			}
-			i++;
-			continue;
 		}
 		buffer[byte_n % kilochar] = format[i];
 		byte_n++;
