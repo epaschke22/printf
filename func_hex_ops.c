@@ -28,7 +28,7 @@ char *op_hex_upper(unsigned int n)
 	_strcpy(str, _uitoa(n, 16));
 	for (i = 0; str[i]; i++)
 		if (str[i] >= 'a' && str[i] <= 'z')
-			str[i] += 32;
+			str[i] -= 32;
 	return (str);
 }
 
