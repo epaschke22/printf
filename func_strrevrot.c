@@ -8,17 +8,14 @@
 char *rev_string(char *s)
 {
 	int len, i = 0;
-	char temp, *str;
+	char temp;
 
-	str = malloc(_strlen(s) * sizeof(char));
-	str = _strcpy(str, s);
-
-	len = _strlen(str) - 1;
+	len = _strlen(s) - 1;
 	while (i <= len)
 	{
-		temp = str[i];
-		str[i] = str[len];
-		str[len] = temp;
+		temp = s[i];
+		s[i] = s[len];
+		s[len] = temp;
 		i++;
 		len--;
 	}
