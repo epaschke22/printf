@@ -48,6 +48,25 @@ char *op_manage(char c, va_list arg)
 }
 
 /**
+ * wbuff - writes buffer if at 1024
+ * @byte_n: total # of bytes written
+ * @buffer: The buffer of stuff to be written
+ * @c: character to add to buff
+ *
+ * Return: number of bytes written
+ */
+int wbuff(int byte_n, char *buffer, char c)
+{
+	int kilochar = sizeof(char) * 1024;
+
+	buffer[byte_n % kilochar] = c;
+	byte_n++;
+	if (byte_n % kilochar == 0 && byte_n != 0)
+		write(1, buffer, kilochar);
+	return (byte_n);
+}
+
+/**
  * _printf - creates buffer and calls functions for string
  * @format: input string
  *
@@ -58,7 +77,7 @@ int _printf(const char * const format, ...)
 {
 	va_list arg;
 	int i, j, byte_n = 0, kilochar = (1024 * sizeof(char));
-	char *buffer, *string;
+	char *buffer, *str;
 
 	if (format == NULL || format[0] == '\0' || !format)
 		return (-1);
@@ -73,24 +92,16 @@ int _printf(const char * const format, ...)
 				free(buffer);
 				return (-1);
 			}
-			string = op_manage(format[i + 1], arg);
-			if (string != NULL)
+			str = op_manage(format[i + 1], arg);
+			if (str != NULL)
 			{
-				for (j = 0; string[j] != '\0'; j++)
-				{
-					buffer[byte_n % kilochar] = string[j];
-					byte_n++;
-					if (byte_n % kilochar == 0 && byte_n != 0)
-					write(1, buffer, kilochar);
-				}
+				for (j = 0; str[j] != '\0'; j++)
+					byte_n = wbuff(byte_n, buffer, str[j]);
 				i++;
 				continue;
 			}
 		}
-		buffer[byte_n % kilochar] = format[i];
-		byte_n++;
-		if (byte_n % kilochar == 0 && byte_n != 0)
-			write(1, buffer, kilochar);
+		byte_n = wbuff(byte_n, buffer, format[i]);
 	}
 	va_end(arg);
 	if (byte_n % kilochar != 0)
