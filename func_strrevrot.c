@@ -8,17 +8,14 @@
 char *rev_string(char *s)
 {
 	int len, i = 0;
-	char temp, *str;
+	char temp;
 
-	str = malloc(_strlen(s) * sizeof(char));
-	str = _strcpy(str, s);
-
-	len = _strlen(str) - 1;
+	len = _strlen(s) - 1;
 	while (i <= len)
 	{
-		temp = str[i];
-		str[i] = str[len];
-		str[len] = temp;
+		temp = s[i];
+		s[i] = s[len];
+		s[len] = temp;
 		i++;
 		len--;
 	}
@@ -33,19 +30,15 @@ char *rev_string(char *s)
 char *rot13(char *s)
 {
 	int i, j;
-	char *str;
 	char alpha[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char rot13[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
-	str = malloc(_strlen(s) * sizeof(char));
-	str = _strcpy(str, s);
-
-	for (i = 0; str[i]; i++)
-		for (j = 0; alpha[j]; j++)
-			if (str[i] == alpha[j])
+	for (i = 0; s[i] != 0; i++)
+		for (j = 0; alpha[j] != 0; j++)
+			if (s[i] == alpha[j])
 			{
-				str[i] = rot13[j];
+				s[i] = rot13[j];
 				break;
 			}
-	return (str);
+	return (s);
 }

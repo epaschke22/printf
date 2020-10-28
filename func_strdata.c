@@ -42,11 +42,11 @@ int _strlen(char *s)
  */
 char *_strcpy(char *dest, char *src)
 {
-	int i;
+	int arrpos;
 
-	for (i = 0; src[i]; i++)
-		dest[i] = src[i];
-	dest[i] = '\0';
+	for (arrpos = 0; src[arrpos]; arrpos++)
+		dest[arrpos] = src[arrpos];
+	dest[arrpos] = '\0';
 	return (dest);
 }
 
@@ -61,7 +61,6 @@ char *_strcat(char *dest, char *src)
 	int len, i;
 
 	len = _strlen(dest);
-
 	for (i = 0; src[i]; i++)
 		dest[len + i] = src[i];
 	return (dest);
