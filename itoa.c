@@ -4,7 +4,6 @@
 /**
  * _itoa - converts an int into a string
  * @value: input number
- * @base: base to convert number
  * Return: string if successful
  */
 char *_itoa(int value)
